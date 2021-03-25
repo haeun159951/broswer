@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color:black;
+        }
+        div{
+            width:200px;
+            height:200px;
+            background-color:bisque;
+            margin-top: 3px;
+            border-radius:3px;
+        }
+
+        .special{
+            background-color:coral;
+        }
+
+        .buttons{
+            position: fixed;
+            top:20px;
+            right:20px;
+        }
+    </style>
+
+</head>
+<body>
+
+   <aside class="buttons">
+    <button class="scrollBy">Scroll by 100px(y)</button>
+    <button class="scrollTo">Scroll to 100px(y)</button>
+    <button class="scrollInto">Scroll into special</button>
+   </aside>
+
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div class="special"></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+    <script>
+        const special = document.querySelector('.special');
+        special.addEventListener('click', (e) => {
+            console.log(special.getBoundingClientRect());
+            console.log(`client: ${e.clientX}, ${e.clientY}`);
+            console.log(`page: ${e.pageX}, ${e.pageY}`);
+        });
+
+        // 100씩 이동
+        const scrollBy = document.querySelector('.scrollBy');
+        scrollBy.addEventListener('click', () => {
+            window.scrollBy(0,100);
+        });
+
+        //y가 100인 곳으로 이동
+        const scrollTo = document.querySelector('.scrollTo');
+        scrollTo.addEventListener('click', () => {
+            window.scrollTo(0,100);
+        });
+  
+
+        // 주황색 컬럼 찾음 
+        const scrollInto = document.querySelector('.scrollInto');
+        scrollInto.addEventListener('click', () => {
+            special.scrollIntoView();
+        });      
+    </script>
+</body>
+</html>
