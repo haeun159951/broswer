@@ -3,18 +3,24 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 ul{
     list-style-type: none;
 }
 
 .list{
-    text-align: center;
     width: 400px;
     background-color: yellow;
     border-radius: 25px;
-   
 }
+
+.items{
+    height: 500px;
+    overflow-y: auto;
+    margin: auto;
+}
+
 .item{
     display: flex;
     justify-content: space-between;
@@ -27,24 +33,21 @@ button{
     border:none;
     cursor: pointer;
 }
+
 .delete-btn{
     font-size:18px;
-
 }
 
 .delete-btn:hover{
     color:red;
 }
+
 header{
     padding-top: 15px;
     font-size:30px;
     height:48px;
     background-color: aliceblue;
     border-radius: 20px 20px 0 0;
-}
-
-.items{
-    height: 500px;
 }
 
 footer{
@@ -57,8 +60,7 @@ footer{
     height: 32px;
     border:none;
     outline: none;
-
-    padding: 0 16px;
+    padding: 0 0px;
     font-size: 24px;
 }
 

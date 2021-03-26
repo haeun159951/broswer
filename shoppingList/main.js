@@ -21,11 +21,10 @@ function createList(text){
     deleteBtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
     deleteBtn.addEventListener('click', () => {
         items.removeChild(item_row);
-    })
+    });
+
     item.appendChild(name);
     item.appendChild(deleteBtn);
-  
-
     item_row.appendChild(item);
 
     return item_row;
@@ -34,16 +33,27 @@ function createList(text){
 
 
 function addList(){
+    //1 사용자가 입력한 텍스트를 받아옴 
     const text = input.value;
-    if(text === ' ')
+    if(text === '')
     {
         input.focus();
-        return;
+        return; 
     }
     console.log(text);
+
+    // 2. 새로운 아이템을 만든 텍스트 + 삭제
     const item = createList(text);
+
+    //3. items 컨테이너안에 새로 만든 아이템을 추가한다.
     items.appendChild(item);
-    input.value=' ';
+
+    //3-새로 추가된 아이템으로 스크롤링
+
+    item.scrollIntoView({block:'center'});
+    //4. 인풋 초기화 한다
+
+    input.value = '';
     input.focus();
 
 }
@@ -53,7 +63,11 @@ addBtn.addEventListener('click', () => {
     addList(); 
 });
 
-input.addEventListener('keypress', () =>{
-    //console.log('key');
-    addList();
+input.addEventListener('keypress', (event) =>{
+    console.log('key');
+    //addList();
+
+    if(event.key === 'Enter'){
+        addList();
+    } 
 })
