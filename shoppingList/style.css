@@ -12,6 +12,7 @@ ul{
 .list{
     width: 400px;
     background-color: yellow;
+    margin: auto;
     border-radius: 25px;
 }
 
@@ -25,7 +26,6 @@ ul{
     display: flex;
     justify-content: space-between;
     padding: 8px 32px;
-    font-size:24px;
 }
 button{
     outline:none;
@@ -60,7 +60,7 @@ footer{
     height: 32px;
     border:none;
     outline: none;
-    padding: 0 0px;
+    padding: 0 16px;
     font-size: 24px;
 }
 
