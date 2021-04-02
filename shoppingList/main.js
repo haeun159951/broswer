@@ -3,29 +3,39 @@ const addBtn = document.querySelector('.plus-btn');
 const items = document.querySelector('.items');
 
 
-
+let id = 0; //UUID
 function createList(text){
     const item_row = document.createElement('li');
     item_row.setAttribute('class', 'item-row');
 
-    const item =  document.createElement('div');
-    item.setAttribute('class', 'item');
+    item_row.setAttribute('data-id', id);
+    item_row.innerHTML = 
+                        `<div class="item">
+                            <span class="item_name">${text}</span>
+                            <button class="delete-btn">
+                            <i class="fas fa-trash-alt" data-id=${id}></i>
+                            </button>
+                        </div>`;
 
-    const name = document.createElement('span');
-    name.setAttribute('class', 'item_name');
-    name.innerText = text;
+    id++;
+    // const item =  document.createElement('div');
+    // item.setAttribute('class', 'item');
+
+    // const name = document.createElement('span');
+    // name.setAttribute('class', 'item_name');
+    // name.innerText = text;
 
 
-    const deleteBtn = document.createElement('button');
-    deleteBtn.setAttribute('class', 'delete-btn');
-    deleteBtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
-    deleteBtn.addEventListener('click', () => {
-        items.removeChild(item_row);
-    });
+    // const deleteBtn = document.createElement('button');
+    // deleteBtn.setAttribute('class', 'delete-btn');
+    // deleteBtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
+    // deleteBtn.addEventListener('click', () => {
+    //     items.removeChild(item_row);
+    // });
 
-    item.appendChild(name);
-    item.appendChild(deleteBtn);
-    item_row.appendChild(item);
+    // item.appendChild(name);
+    // item.appendChild(deleteBtn);
+    // item_row.appendChild(item);
 
     return item_row;
 }
@@ -33,6 +43,7 @@ function createList(text){
 
 
 function addList(){
+    
     //1 사용자가 입력한 텍스트를 받아옴 
     const text = input.value;
     if(text === '')
@@ -49,15 +60,12 @@ function addList(){
     items.appendChild(item);
 
     //3-새로 추가된 아이템으로 스크롤링
-
     item.scrollIntoView({block:'center'});
     //4. 인풋 초기화 한다
 
     input.value = '';
     input.focus();
-
 }
-
 
 addBtn.addEventListener('click', () => {
     addList(); 
@@ -71,3 +79,12 @@ input.addEventListener('keypress', (event) =>{
         addList();
     } 
 })
+
+items.addEventListener('click', event =>{
+    const id = event.target.dataset.id;
+    if(id){
+        const toBeDeleted = document.querySelector(`.item-row[data-id="${id}"]`);
+        toBeDeleted.remove();
+    }
+});
+    
