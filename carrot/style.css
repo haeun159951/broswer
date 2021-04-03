@@ -1,18 +1,107 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+button {
+  cursor: pointer;
+}
+body {
+  background-image: url(img/background.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+.section1 {
+  margin: auto;
+}
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
 }
 
-body{
-    background-image: url(img/background.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.gameField {
+  background: blue;
+  width: 100%;
+  height: 100%;
+}
+.playBtn {
+  font-size: 50px;
+  background-color: #f0d4a2;
+  border: 0.4rem solid black;
+  width: 80px;
+  height: 80px;
+  margin-top: 5px;
+  text-align: center;
 }
 
+.timer {
+  margin-top: 5px;
+  width: 250px;
+  height: 70px;
+  border: 0.4rem solid black;
+  background-color: #fff;
+  text-align: center;
+  font-size: 36px;
+  padding-top: 10px;
+  border-radius: 15px;
+}
+
+.score {
+  margin-top: 5px;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  border: 0.2rem solid black;
+  background-color: salmon;
+  color: white;
+  text-align: center;
+  font-size: 50px;
+}
+
+.gameField {
+  width: 100%;
+  height: 100%;
+  margin-top: 40px;
+  background-color: red;
+  opacity: 0.4;
+}
+
+.resultPopup {
+  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: auto;
+  width: 400px;
+  height: 140px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 15px;
+  opacity: 1;
+}
+
+.popup-hide {
+  display: none;
+}
+
+.refreshBtn {
+  display: block;
+  font-size: 50px;
+  background-color: #f0d4a2;
+  border: 0.2rem solid black;
+  width: 80px;
+  height: 80px;
+  border-radius: 15px;
+  margin-top: 5px;
+  text-align: center;
+}
+
+.msg {
+  color: #fff;
+  padding-top: 8px;
+  font-size: 32px;
+}
