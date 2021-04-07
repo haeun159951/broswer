@@ -1,10 +1,32 @@
 let field = document.querySelector('.g__field');
-let play_button = document.querySelector('playBtn');
-let game_timer = document.querySelector('timer');
-let game_score = document.querySelector('score');
+let play_button = document.querySelector('.playBtn');
+let game_timer = document.querySelector('.timer');
+let game_score = document.querySelector('.score');
 
-carrotOrBug('carrot', 5);
-carrotOrBug('bug', 5);
+function timer() {
+  let setTime = 10;
+}
+
+function showTimeandScore() {
+  game_timer.style.visibility = 'visible';
+  game_score.style.visibility = 'visible';
+}
+
+function pauseBtn() {
+  let item = document.querySelector('.fa-play');
+  item.classList.remove('fa-play');
+  item.classList.add('fa-stop');
+}
+
+// play -> pause button and timer
+function playGame() {
+  game_timer.innerHTML = `00:10`;
+  game_score.innerHTML = `0`;
+  pauseBtn();
+  carrotOrBug('carrot', 5);
+  carrotOrBug('bug', 5);
+  showTimeandScore();
+}
 
 //두사이의 난수 생성하기
 function randomNumber(min, max) {
@@ -31,6 +53,8 @@ function carrotOrBug(className, num) {
     field.appendChild(item);
   }
 }
-
-// game play button
-play_button.addEventListener('click', () => {});
+document.addEventListener('DOMContentLoaded', function (event) {
+  play_button.addEventListener('click', () => {
+    playGame();
+  });
+});
