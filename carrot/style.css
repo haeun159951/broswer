@@ -1,20 +1,17 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
 button {
   cursor: pointer;
 }
-body {
+.game {
+  display: flex;
+  flex-direction: column;
   background-image: url(img/background.png);
+  background-position: center;
   background-size: cover;
-  background-repeat: no-repeat;
-  height: 100vh;
-}
-.section1 {
+  width: 800px;
+  height: 500px;
   margin: auto;
 }
+
 .header {
   display: flex;
   flex-direction: column;
@@ -22,10 +19,11 @@ body {
   padding: 20px;
 }
 
-.gameField {
-  background: blue;
+.g__field {
+  position: relative;
   width: 100%;
   height: 100%;
+  margin-top: 20px;
 }
 .playBtn {
   font-size: 50px;
@@ -40,11 +38,11 @@ body {
 .timer {
   margin-top: 5px;
   width: 250px;
-  height: 70px;
+  height: 40px;
   border: 0.4rem solid black;
   background-color: #fff;
   text-align: center;
-  font-size: 36px;
+  font-size: 32px;
   padding-top: 10px;
   border-radius: 15px;
 }
@@ -52,21 +50,13 @@ body {
 .score {
   margin-top: 5px;
   border-radius: 50%;
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   border: 0.2rem solid black;
   background-color: salmon;
   color: white;
   text-align: center;
   font-size: 50px;
-}
-
-.gameField {
-  width: 100%;
-  height: 100%;
-  margin-top: 40px;
-  background-color: red;
-  opacity: 0.4;
 }
 
 .resultPopup {
