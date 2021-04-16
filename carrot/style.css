@@ -49,6 +49,8 @@ button {
   padding-top: 10px;
   border-radius: 15px;
   visibility: hidden;
+  user-select: none;
+  cursor: auto;
 }
 
 .score {
@@ -81,6 +83,8 @@ button {
   background-color: rgba(0, 0, 0, 0.6);
   border-radius: 15px;
   opacity: 1;
+  user-select: none;
+  cursor: auto;
 }
 
 .popup-hide {
@@ -103,4 +107,12 @@ button {
   color: #fff;
   padding-top: 8px;
   font-size: 32px;
+}
+.carrot,
+.but {
+  transition: transform 100ms ease-in;
+}
+.carrot:hover,
+.bug:hover {
+  transform: scale(1.1);
 }

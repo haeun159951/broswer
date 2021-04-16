@@ -31,6 +31,7 @@ playBtn.addEventListener('click', () => {
 refresh.addEventListener('click', () => {
   playGame();
   result.classList.add('popup-hide');
+  playBtn.style.visibility = 'visible';
 });
 
 // 3. play -> pause button and timer
@@ -128,6 +129,7 @@ function loseGame() {
   playSound(bugSound);
   hideGameBtn();
   stopSound(bgSound);
+  stopSound(bugSound);
   stopTimer();
   result.classList.remove('popup-hide');
 }
