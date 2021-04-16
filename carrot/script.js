@@ -11,6 +11,12 @@ let score;
 let gameStart = false;
 const startingSeconds = 10;
 let time = startingSeconds * 60; // 600 =>
+
+const carroutSound = new Audio('./sound/carrot_pull.mp3');
+const bugSound = new Audio('./sound/bug_pull.mp3');
+const bgSound = new Audio('./sound/bg.mp3');
+const gameWin = new Audio('./sound/game_win.mp3');
+const alertSound = new Audio('./sound/alert.wav');
 // start game timer
 //1초 단위로 타이머를 업데이트 하는것
 
@@ -38,6 +44,7 @@ function playGame() {
   stopBtn();
   showTimeandScore();
   startTimer();
+  playSound(bgSound);
 }
 //4. STOP game
 function stopGame() {
@@ -45,6 +52,8 @@ function stopGame() {
   stopTimer();
   hideGameBtn();
   showPopupText();
+  playSound(alertSound);
+  stopSound(bgSound);
 }
 
 function updateCountDown(time) {
@@ -60,6 +69,7 @@ function startTimer() {
 
   timer = setInterval(() => {
     if (count <= 0) {
+      loseGame();
       clearInterval(timer);
       if (game_score.innerHTML === score) {
         loseGame();
@@ -103,9 +113,11 @@ function showPopupText() {
 field.addEventListener('click', (event) => {
   const target = event.target;
   if (target.className === 'carrot') {
+    playSound(carroutSound);
     target.remove();
     updateScoreBoard();
   } else if (target.className === 'bug') {
+    playSound(bugSound);
     stopTimer();
     loseGame();
   }
@@ -113,17 +125,30 @@ field.addEventListener('click', (event) => {
 
 function loseGame() {
   popupMsg.innerHTML = `YOU LOST 💩 🚽`;
+  playSound(bugSound);
   hideGameBtn();
+  stopSound(bgSound);
+  stopTimer();
   result.classList.remove('popup-hide');
 }
 
 function finishGame() {
-  stopTimer();
+  //stopTimer();
   popupMsg.innerHTML = `YOU WON 🎉`;
+  playSound(gameWin);
   hideGameBtn();
+  stopSound(bgSound);
+  stopTimer();
   result.classList.remove('popup-hide');
 }
 
+function playSound(sound) {
+  sound.currentTime = 0;
+  sound.play();
+}
+function stopSound(sound) {
+  sound.pause();
+}
 function updateScoreBoard() {
   score++;
   game_score.innerText = 5 - score;
